@@ -9,69 +9,8 @@ Handlebars.registerHelper('toCapitalCase', function (str) {
 
 function initUserLanguage() {
   var language = amplify.store("language");
-
-  //if (language){
-    //Session.set("language", language);
-  //}
   setUserLanguage("en");
 }
-
-//function getUserLanguage() {
-  //var language = Session.get("language");
-
-  //if (language){
-    //return language;
-  //} else {
-    //return "en";
-  //}
-//};
-
-//function setUserLanguage(language) {
-  //TAPi18n.setLanguage(language).done(function () {
-    //Session.set("language", language);
-    //amplify.store("language", language);
-  //});
-//}
-
-//function getLanguageDirection() {
-  //var language = getUserLanguage()
-  //var rtlLanguages = ['he', 'ar', 'fa'];
-
-  //if ($.inArray(language, rtlLanguages) !== -1) {
-    //return 'rtl';
-  //} else {
-    //return 'ltr';
-  //}
-//}
-
-//function getLanguageList() {
-  //var languages = TAPi18n.getLanguages();
-  //var languageList = _.map(languages, function(value, key) {
-    //var selected = "";
-
-    //if (key == getUserLanguage()){
-      //selected = "selected";
-    //}
-
-    // Gujarati isn't handled automatically by tap-i18n,
-    // so we need to set the language name manually
-    //if (value.name == "gu"){
-        //value.name = "ગુજરાતી";
-    //}
-
-    //return {
-      //code: key,
-      //selected: selected,
-      //languageDetails: value
-    //};
-  //});
-
-  //if (languageList.length <= 1){
-    //return null;
-  //}
-
-  //return languageList;
-//}
 
 function getCurrentGame(){
   var gameID = Session.get("gameID");
@@ -193,8 +132,6 @@ function hasHistoryApi () {
   return !!(window.history && window.history.pushState);
 }
 
-//initUserLanguage();
-
 Meteor.setInterval(function () {
   Session.set('time', new Date());
 }, 1000);
@@ -240,30 +177,8 @@ Template.main.helpers({
   whichView: function() {
     return Session.get('currentView');
   },
-  //language: function() {
-    //return getUserLanguage();
-  //},
-  //textDirection: function() {
-    //return getLanguageDirection();
-  //}
 });
 
-//Template.footer.helpers({
-//  languages: getLanguageList
-//})
-
-//Template.footer.events({
-  //'click .btn-set-language': function (event) {
-    //var language = $(event.target).data('language');
-    //setUserLanguage(language);
-    //GAnalytics.event("language-actions", "set-language-" + language);
-  //},
-  //'change .language-select': function (event) {
-    //var language = event.target.value;
-    //setUserLanguage(language);
-    //GAnalytics.event("language-actions", "set-language-" + language);
-  //}
-//})
 
 Template.startMenu.events({
   'click #btn-new-game': function () {
