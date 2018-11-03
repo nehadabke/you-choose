@@ -15,7 +15,7 @@
 
 <template name="main">
   <div class="adspace"></div>
-  <div dir="{{ textDirection }}" class="container dir-{{textDirection}} lang-{{ language }}">
+  <div dir="{{ textDirection }}" class="container dir-{{textDirection}} lang-{{ language }} ">
     <div class="main-content">
       {{> Template.dynamic template=whichView}}
 
@@ -243,7 +243,7 @@
 </template>
 
 <template name="footer">
-  {{#if languages }}
+  <!-- {{#if languages }}
     <div dir="ltr" class="languages">
       <select class="language-select">
         {{#each languages }}
@@ -258,13 +258,13 @@
         {{/each}}
       </ul>
     </div>
-  {{/if}}
+  {{/if}}-->
 
   <div class="footer">
-    <a href="https://www.cryptozoic.com/sites/default/files/icme/u30695/spy_rules_eng_0.pdf" target="_blank">Official Rules</a>
+  <!--  <a href="https://www.cryptozoic.com/sites/default/files/icme/u30695/spy_rules_eng_0.pdf" target="_blank">Official Rules</a>
     <br>
     {{{_ "ui.footer" }}}
     <br>
-    <a href="https://github.com/mpcovcd/spyfall" target="_blank">https://github.com/mpcovcd/spyfall</a>
+    <a href="https://github.com/mpcovcd/spyfall" target="_blank">https://github.com/mpcovcd/spyfall</a>-->
   </div>
 </template>
