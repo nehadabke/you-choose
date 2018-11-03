@@ -13,6 +13,26 @@ function initUserLanguage() {
   setUserLanguage("en");
 }
 
+function search() {
+  var rapid = new RapidAPI("default-application_5bdde751e4b09efa5fbce1ee", "ENTER CODE");
+
+  rapid.call('YelpAPI', 'getBusinesses', {
+  'term': 'food',
+  'openAt': '2018-11-03 00:00:00',
+  'accessToken': 'ZlLMH73HGfMLVVDV7u1_zkFVt5R5OaYzRmI50a5OZFRsZ9j119VY5wS5zA5bEarfroW9IsSplbf_3M0bS6ujGTO-20sMaDim4VVEym4aKqYNuJzURIt_laqBi-bdW3Yx',
+  'radius': '1',
+  'price': '1',
+  'coordinate': '37.870803699999996, -122.2510809',
+  'categories': 'chinese',
+  'sortBy': 'best_match'
+
+  }).on('success', function (payload) {
+   /*YOUR CODE GOES HERE*/
+  }).on('error', function (payload) {
+   /*YOUR CODE GOES HERE*/
+  });
+}
+
 function getCurrentGame(){
   var gameID = Session.get("gameID");
 
@@ -218,6 +238,10 @@ Template.startMenu.events({
   },
   'click #btn-join-game': function () {
     Session.set("currentView", "joinGame");
+  },
+
+  'click #btn-location': function () {
+    geoFindMe();
   }
 });
 
