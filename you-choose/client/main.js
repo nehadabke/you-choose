@@ -39,22 +39,19 @@ function search() {
 }
 
 function search2() {
-  var data = null;
+  var myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?accessToken=ZlLMH73HGfMLVVDV7u1_zkFVt5R5OaYzRmI50a5OZFRsZ9j119VY5wS5zA5bEarfroW9IsSplbf_3M0bS6ujGTO-20sMaDim4VVEym4aKqYNuJzURIt_laqBi-bdW3Yx&term=restaurants&latitude=37.870803699999996&longitude=-122.2510809&radius=25000&price=2&limit=10&categories=italian&sortBy=best_match";
 
-  var xhr = new XMLHttpRequest();
-  xhr.withCredentials = true;
-
-  xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === 4) {
-      console.log(this.responseText);
-    }
-  });
-
-  xhr.open("GET", "https://api.yelp.com/v3/businesses/search?term=restaurants&latitude=37.870803699999996&longitude=-122.2510809&radius=25000&price=2&limit=10&categories=italian&sortBy=best_match&client_id=EP6MztNTrFnU63r1B2mkPg");
-  xhr.setRequestHeader("Authorization", "Bearer [ZlLMH73HGfMLVVDV7u1_zkFVt5R5OaYzRmI50a5OZFRsZ9j119VY5wS5zA5bEarfroW9IsSplbf_3M0bS6ujGTO-20sMaDim4VVEym4aKqYNuJzURIt_laqBi-bdW3Yx]");
-  xhr.setRequestHeader("Cache-Control", "no-cache");
-  xhr.setRequestHeader("Postman-Token", "2db882e0-46a3-41d2-a7a4-21a582577e2a");
-  xhr.send(data);
+         $.ajax({
+            url: myurl,
+            headers: {
+             'Authorization':'Bearer ZlLMH73HGfMLVVDV7u1_zkFVt5R5OaYzRmI50a5OZFRsZ9j119VY5wS5zA5bEarfroW9IsSplbf_3M0bS6ujGTO-20sMaDim4VVEym4aKqYNuJzURIt_laqBi-bdW3Yx',
+         },
+            method: 'GET',
+            dataType: 'json',
+            success: function(data){
+                console.log('success: '+data);
+            }
+         });
 }
 
 function getCurrentGame(){
