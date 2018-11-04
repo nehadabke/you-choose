@@ -63,6 +63,7 @@ function getCurrentGame(){
 }
 
 function geoFindMe() {
+  console.log("geoFindMe run")
   var output = document.getElementById("out");
 
   if (!navigator.geolocation){
@@ -73,11 +74,15 @@ function geoFindMe() {
   function success(position) {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
+    console.log("success");
+    console.log(latitude);
+    console.log(longitude);
 
     output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
   }
 
   function error() {
+    console.console.log("error");
     output.innerHTML = "Unable to retrieve your location";
   }
 
@@ -249,6 +254,7 @@ Template.main.helpers({
 
 Template.startMenu.events({
   'click #btn-new-game': function () {
+    console.log("new game");
     Session.set("currentView", "createGame");
 
   },
@@ -257,6 +263,7 @@ Template.startMenu.events({
   },
 
   'click #btn-location': function () {
+    console.log("btn-location");
     geoFindMe();
   },
 
@@ -274,11 +281,11 @@ Template.startMenu.helpers({
   }
 });
 
-Template.startMenu.rendered = function () {
+/*Template.startMenu.rendered = function () {
   GAnalytics.pageview("/");
 
   resetUserState();
-};
+}; */
 
 Template.createGame.events({
   'submit #create-game': function (event) {
@@ -290,7 +297,7 @@ Template.createGame.events({
       return false;
     }
 
-    var game = generateNewGame(event.target.locationRadio.value, event.target.roundMinutes.value);
+    var game = generateNewGame("", event.target.roundMinutes.value);
     var player = generateNewPlayer(game, playerName);
 
     Meteor.subscribe('games', game.accessCode);
@@ -308,8 +315,13 @@ Template.createGame.events({
     return false;
   },
   'click .btn-back': function () {
+    console.log("back");
     Session.set("currentView", "startMenu");
     return false;
+  },
+  'click .btn-loc': function () {
+    console.log("log");
+    geoFindMe();
   }
 });
 
