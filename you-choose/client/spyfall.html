@@ -100,7 +100,7 @@
   <hr>
 
   <div class="button-container">
-    <button class="btn-start">{{_ "ui.start game" }}</button>
+    <button class="btn-sugg">Start</button>
     <button class="btn-leave">{{_ "ui.leave game" }}</button>
   </div>
 </template>
@@ -184,19 +184,6 @@
     <div class="out">
       <input type="text" id="player-name" name="playerName" placeholder='{{_ "ui.enter your name" }}'>
         <br>
-
-      <!--  <label for="location1">
-            <input type="radio" id="location1" name="locationRadio" value="location1" checked="checked">
-            Use Spyfall 1 Locations
-        </label>
-        <label for="location2">
-            <input type="radio" id="location2" name="locationRadio" value="location2">
-            Use Spyfall 2 Locations
-        </label>
-        <label for="locationBoth">
-            <input type="radio" id="locationBoth" name="locationRadio" value="locationBoth">
-            Use Both Locations
-        </label> -->
         <img src="http://nishalinaik.weebly.com/uploads/2/0/4/6/20467860/radius_orig.gif" class="img">
         <label for="round-minutes">
         Radius (in miles): <input class="round-length" type="text" id="round-minutes" name="roundMinutes" value="1" size="2" maxlength="2">
@@ -263,11 +250,92 @@
       <input type="checkbox" name="vietnamese" value="vietnamese"> Vietnamese<br>
 
       <div class="button-container">
-        <button class="toPrice">Next`</button>
+        <button class="toPrice">Next</button>
         <button class="btn-back">{{_ "ui.back" }}</button>
       </div>
     </div>
   </form>
+</template>
+
+<template name="Likes">
+  <h4>
+      Which of these would you be okay with?
+  </h4>
+
+  <hr>
+
+  <form id="likes">
+    <div>
+      <input type="checkbox" name="afghani" value="afghani"> Sliver<br>
+      <input type="checkbox" name="asianfusion" value="asianfusion"> Chipotle<br>
+      <input type="checkbox" name="vehicle3" value="breakfast_brunch"> Mongolian Hot Pot<br>
+      <input type="checkbox" name="chicken_wings" value="chicken_wings"> McDonald's<br>
+      <input type="checkbox" name="chinese" value="chinese"> Chengdu Style Restaurant<br>
+      <input type="checkbox" name="ethiopian" value="ethiopian"> The Bird<br>
+      <input type="checkbox" name="hotdogs" value="hotdogs"> 85C<br>
+      <input type="checkbox" name="greek" value="greek"> In-n-out<br>
+      <input type="checkbox" name="hotpot" value="hotpot"> Burger King<br>
+
+      <div class="button-container">
+        <button class="toDislike">Next</button>
+        <button class="btn-back">{{_ "ui.back" }}</button>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="Dislike">
+  <h4>
+      Which of these would you not be okay with?
+  </h4>
+
+  <hr>
+
+  <form id="dislike">
+    <div>
+      <input type="checkbox" name="afghani" value="afghani"> Sliver<br>
+      <input type="checkbox" name="asianfusion" value="asianfusion"> Chipotle<br>
+      <input type="checkbox" name="vehicle3" value="breakfast_brunch"> Mongolian Hot Pot<br>
+      <input type="checkbox" name="chicken_wings" value="chicken_wings"> McDonald's<br>
+      <input type="checkbox" name="chinese" value="chinese"> Chengdu Style Restaurant<br>
+      <input type="checkbox" name="ethiopian" value="ethiopian"> The Bird<br>
+      <input type="checkbox" name="hotdogs" value="hotdogs"> 85C<br>
+      <input type="checkbox" name="greek" value="greek"> In-n-out<br>
+      <input type="checkbox" name="hotpot" value="hotpot"> Burger King<br>
+
+      <div class="button-container">
+        <button class="toFinish">Next</button>
+        <button class="btn-back">{{_ "ui.back" }}</button>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="price">
+  <h4>
+      What's your budget?
+  </h4>
+
+  <hr>
+
+  <form id="Categories">
+    <div>
+      <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      <div class="button-container">
+        <button class="toLikes">Next</button>
+        <button class="btn-back">{{_ "ui.back" }}</button>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="Finish">
+  <h4>
+      You're going to...
+  </h4>
+  <img src="http://nishalinaik.weebly.com/uploads/2/0/4/6/20467860/calhacks-anim_1_orig.gif" class="img">
+  <h1>SLIVER</h1>
+  <button class="btn-back">Choose Again</button>
 </template>
 
 <template name="footer">

@@ -343,10 +343,35 @@ Template.createGame.rendered = function (event) {
 Template.Suggestions.events({
   'click .toPrice': function () {
     console.log("price");
-    Session.set("currentView", "createGame");
+    Session.set("currentView", "price");
     return false;
   }
 })
+
+Template.price.events({
+  'click .toLikes': function () {
+    console.log("likes");
+    Session.set("currentView", "Likes");
+    return false;
+  }
+})
+
+Template.Likes.events({
+  'click .toDislike': function () {
+    console.log("likes");
+    Session.set("currentView", "Dislike");
+    return false;
+  }
+})
+
+Template.Dislike.events({
+  'click .toFinish': function () {
+    console.log("dislikes");
+    Session.set("currentView", "Finish");
+    return false;
+  }
+})
+
 Template.joinGame.events({
   'submit #join-game': function (event) {
     GAnalytics.event("game-actions", "gamejoin");
@@ -473,6 +498,11 @@ Template.lobby.events({
     resetUserState();
     Session.set('urlAccessCode', game.accessCode);
     Session.set('currentView', 'joinGame');
+  },
+  'click .btn-sugg': function () {
+    console.log("sugg");
+    Session.set("currentView", "Suggestions");
+    return false;
   }
 });
 
