@@ -27,8 +27,8 @@
 
 <template name="startMenu">
   <div class="main-menu">
-    <img src="http://nishalinaik.weebly.com/uploads/2/0/4/6/20467860/titlle-gif_1_orig.gif" class="gif">
-  		<img src="http://nishalinaik.weebly.com/uploads/2/0/4/6/20467860/calhacks-dark_orig.png" class="img">
+    <img src="http://nishalinaik.weebly.com/uploads/2/0/4/6/20467860/titlle-gif_orig.gif" class="gif">
+  		<img src="http://nishalinaik.weebly.com/uploads/2/0/4/6/20467860/calhacks-dark_1.png" class="img">
 
     <div class="button-container">
       <button id="btn-new-game">{{_ "Create Room" }}</button>
@@ -186,7 +186,9 @@
     <div class="">
       <input type="text" id="player-name" name="playerName" placeholder='{{_ "ui.enter your name" }}'>
         <br>
-        <label for="location1">
+
+          <button id="btn-location">Show my location</button><div class="out"></div>
+      <!--  <label for="location1">
             <input type="radio" id="location1" name="locationRadio" value="location1" checked="checked">
             Use Spyfall 1 Locations
         </label>
@@ -197,9 +199,10 @@
         <label for="locationBoth">
             <input type="radio" id="locationBoth" name="locationRadio" value="locationBoth">
             Use Both Locations
-        </label>
+        </label> -->
+        <img src="http://nishalinaik.weebly.com/uploads/2/0/4/6/20467860/radius_orig.gif" class="img">
         <label for="round-minutes">
-        Round Length (in minutes): <input class="round-length" type="text" id="round-minutes" name="roundMinutes" value="8" size="2" maxlength="2">
+        Round Length (in minutes): <input class="round-length" type="text" id="round-minutes" name="roundMinutes" value="1" size="2" maxlength="2">
         </label>
       <div class="button-container">
         <input type="submit" value='{{_ "ui.create game" }}'>
