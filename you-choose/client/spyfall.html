@@ -33,7 +33,6 @@
     <div class="button-container">
       <button id="btn-new-game">{{_ "Create Room" }}</button>
       <button id="btn-join-game">{{_ "Join Room" }}</button>
-      <button id="btn-location">Show my location</button>
       <button id="btn-yelp">Yelp</button>
 <div id="out"></div>
     </div>
@@ -201,12 +200,13 @@
         </label> -->
         <img src="http://nishalinaik.weebly.com/uploads/2/0/4/6/20467860/radius_orig.gif" class="img">
         <label for="round-minutes">
-        Round Length (in minutes): <input class="round-length" type="text" id="round-minutes" name="roundMinutes" value="1" size="2" maxlength="2">
+        Radius (in miles): <input class="round-length" type="text" id="round-minutes" name="roundMinutes" value="1" size="2" maxlength="2">
         </label>
       <div class="button-container">
         <input type="submit" value='{{_ "ui.create game" }}'>
         <button class="btn-back">{{_ "ui.back" }}</button>
         <button class="btn-loc">Show my location</button><div id="out"></div>
+        <button class="btn-sugg">Start</button>
 
       </div>
     </div>
@@ -229,6 +229,43 @@
 
       <div class="button-container">
         <input type="submit" value='{{_ "ui.join" }}'>
+        <button class="btn-back">{{_ "ui.back" }}</button>
+      </div>
+    </div>
+  </form>
+</template>
+
+<template name="Suggestions">
+  <h4>
+      What are you in the mood for?
+  </h4>
+
+  <hr>
+
+  <form id="Categories">
+    <div>
+      <input type="checkbox" name="afghani" value="afghani"> Afghan<br>
+      <input type="checkbox" name="asianfusion" value="asianfusion"> Asian Fusion<br>
+      <input type="checkbox" name="vehicle3" value="breakfast_brunch"> Breakfast & Brunch<br>
+      <input type="checkbox" name="chicken_wings" value="chicken_wings"> Chicken Wings<br>
+      <input type="checkbox" name="chinese" value="chinese"> Chinese<br>
+      <input type="checkbox" name="ethiopian" value="ethiopian"> Ethiopian<br>
+      <input type="checkbox" name="hotdogs" value="hotdogs"> Fast Food<br>
+      <input type="checkbox" name="greek" value="greek"> Greek<br>
+      <input type="checkbox" name="hotpot" value="hotpot"> Hot Pot<br>
+      <input type="checkbox" name="italian" value="italian"> Italian<br>
+      <input type="checkbox" name="indpak" value="indpak"> Indian<br>
+      <input type="checkbox" name="japanese" value="japanese"> Japanese<br>
+      <input type="checkbox" name="korean" value="korean"> Korean<br>
+      <input type="checkbox" name="mediterranean" value="mediterranean"> Mediterranean<br>
+      <input type="checkbox" name="mexican" value="mexican"> Mexican<br>
+      <input type="checkbox" name="pakistani" value="pakistani"> Pakistani<br>
+      <input type="checkbox" name="vegan" value="vegan"> Vegan<br>
+      <input type="checkbox" name="vegetarian" value="vegetarian"> Vegetarian<br>
+      <input type="checkbox" name="vietnamese" value="vietnamese"> Vietnamese<br>
+
+      <div class="button-container">
+        <button class="toPrice">Next`</button>
         <button class="btn-back">{{_ "ui.back" }}</button>
       </div>
     </div>

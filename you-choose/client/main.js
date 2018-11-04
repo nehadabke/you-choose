@@ -322,6 +322,11 @@ Template.createGame.events({
   'click .btn-loc': function () {
     console.log("log");
     geoFindMe();
+  },
+  'click .btn-sugg': function () {
+    console.log("sugg");
+    Session.set("currentView", "Suggestions");
+    return false;
   }
 });
 
@@ -335,6 +340,13 @@ Template.createGame.rendered = function (event) {
   $("#player-name").focus();
 };
 
+Template.Suggestions.events({
+  'click .toPrice': function () {
+    console.log("price");
+    Session.set("currentView", "createGame");
+    return false;
+  }
+})
 Template.joinGame.events({
   'submit #join-game': function (event) {
     GAnalytics.event("game-actions", "gamejoin");
