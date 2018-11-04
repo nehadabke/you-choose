@@ -14,23 +14,48 @@ function initUserLanguage() {
 }
 
 function search() {
-  var rapid = new RapidAPI("default-application_5bdde751e4b09efa5fbce1ee", "ENTER CODE");
+  var rapid = new RapidAPI("default-application_5bdde751e4b09efa5fbce1ee", "ff93aca2-e8ed-4dd7-9f55-381052e08581");
 
   rapid.call('YelpAPI', 'getBusinesses', {
-  'term': 'food',
-  'openAt': '2018-11-03 00:00:00',
-  'accessToken': 'ZlLMH73HGfMLVVDV7u1_zkFVt5R5OaYzRmI50a5OZFRsZ9j119VY5wS5zA5bEarfroW9IsSplbf_3M0bS6ujGTO-20sMaDim4VVEym4aKqYNuJzURIt_laqBi-bdW3Yx',
-  'radius': '1',
-  'price': '1',
-  'coordinate': '37.870803699999996, -122.2510809',
-  'categories': 'chinese',
-  'sortBy': 'best_match'
+    'term': 'restaurants',
+    'openAt': '2018-11-03 11:00:00',
+    'accessToken': 'ZlLMH73HGfMLVVDV7u1_zkFVt5R5OaYzRmI50a5OZFRsZ9j119VY5wS5zA5bEarfroW9IsSplbf_3M0bS6ujGTO-20sMaDim4VVEym4aKqYNuJzURIt_laqBi-bdW3Yx',
+    'radius': '25000',
+    'price': '2',
+    'coordinate': '37.870803699999996, -122.2510809',
+    'limit': '10',
+    'categories': 'chinese',
+    'sortBy': 'best_match'
 
   }).on('success', function (payload) {
    /*YOUR CODE GOES HERE*/
+   var output = document.getElementById("out");
+   output.innerHTML = "<p>Success</p>";
   }).on('error', function (payload) {
    /*YOUR CODE GOES HERE*/
+   var output = document.getElementById("out");
+   output.innerHTML = "<p>Failure</p>";
   });
+}
+
+function search2() {
+  var data = null;
+
+  var xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+
+  xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      console.log(this.responseText);
+    }
+  });
+
+  xhr.open("GET", "https://api.yelp.com/v3/businesses/search?accessToken=ZlLMH73HGfMLVVDV7u1_zkFVt5R5OaYzRmI50a5OZFRsZ9j119VY5wS5zA5bEarfroW9IsSplbf_3M0bS6ujGTO-20sMaDim4VVEym4aKqYNuJzURIt_laqBi-bdW3Yx&term=restaurants&latitude=37.870803699999996&longitude=-122.2510809&radius=25000&price=2&limit=10&categories=chinese&sortBy=best_match");
+  xhr.setRequestHeader("Authorization", "Bearer ZlLMH73HGfMLVVDV7u1_zkFVt5R5OaYzRmI50a5OZFRsZ9j119VY5wS5zA5bEarfroW9IsSplbf_3M0bS6ujGTO-20sMaDim4VVEym4aKqYNuJzURIt_laqBi-bdW3Yx");
+  xhr.setRequestHeader("Cache-Control", "no-cache");
+  xhr.setRequestHeader("Postman-Token", "bf5a3e25-c42a-4865-930b-e1630516cd80");
+
+  xhr.send(data);
 }
 
 function getCurrentGame(){
@@ -242,6 +267,10 @@ Template.startMenu.events({
 
   'click #btn-location': function () {
     geoFindMe();
+  },
+
+  'click #btn-yelp': function () {
+    search2();
   }
 });
 
